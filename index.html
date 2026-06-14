@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emora - Emotional Wellness</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="phone-shell" aria-label="Emora app prototype">
+      <section class="app-screen" data-mood="heartbroken">
+        <div class="mood-sky">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="grain"></div>
+
+        <section class="flow-layer active" id="splash" data-flow="splash">
+          <div class="brand-orb"></div>
+          <p class="kicker">Emora</p>
+          <h1>Your cinematic emotional safe space.</h1>
+          <a
+            href="#login"
+            class="main-cta"
+            id="enterButton"
+            data-next-flow="login"
+          >Enter</a>
+        </section>
+
+        <section class="flow-layer" id="login" data-flow="login">
+          <div class="flow-header">
+            <p class="kicker">Enter softly</p>
+            <h2>No account needed tonight.</h2>
+          </div>
+          <div class="login-stack">
+            <label class="guest-name">
+              What should Emora call you?
+              <input id="guestName" type="text" placeholder="Maya" autocomplete="name" />
+            </label>
+            <a
+              href="#onboarding"
+              class="auth-card"
+              id="guestLogin"
+              data-next-flow="onboarding"
+            >
+              <span>+</span>
+              Continue
+            </a>
+          </div>
+          <p class="quiet-copy" id="authMessage">Your mood, reason, and preferences are saved privately in this browser.</p>
+        </section>
+
+        <section class="flow-layer" id="onboarding" data-flow="onboarding">
+          <div class="flow-header">
+            <p class="kicker">Emotional onboarding</p>
+            <h2>Let Emora learn what comforts you.</h2>
+          </div>
+          <div class="onboarding-cards preference-grid" id="onboardingForm">
+            <label>Feeling lately <select id="feelingLately"><option>Heavy</option><option>Overstimulated</option><option>Low energy</option><option>Motivated</option><option>Peaceful</option></select></label>
+            <label>Comforts me <select id="comfortPref"><option>Music</option><option>Journaling</option><option>Breathing</option><option>Walking</option><option>Talking</option></select></label>
+            <label>Main stress <select id="stressPref"><option>Overthinking</option><option>Studies</option><option>Relationships</option><option>Family</option><option>Burnout</option></select></label>
+            <label>Healing goal <select id="goalPref"><option>Feel calmer</option><option>Sleep better</option><option>Move on</option><option>Get motivated</option><option>Build confidence</option></select></label>
+          </div>
+          <a class="main-cta" href="#mood" id="saveOnboarding" data-next-flow="mood">Choose mood</a>
+        </section>
+
+        <section class="flow-layer" id="mood" data-flow="mood">
+          <div class="flow-header">
+            <p class="kicker">Mood selection</p>
+            <h2>What needs care right now?</h2>
+          </div>
+          <div class="mood-picker" id="moodPicker">
+            <a class="mood-choice" href="#reason" data-mood-id="heartbroken" style="--tone:#ff5ea8"><strong>Heartbroken</strong><span>rainy neon</span></a>
+            <a class="mood-choice" href="#reason" data-mood-id="sad" style="--tone:#5f8dff"><strong>Sad</strong><span>soft rain</span></a>
+            <a class="mood-choice" href="#reason" data-mood-id="anxious" style="--tone:#7a8cff"><strong>Anxious</strong><span>slow blue glow</span></a>
+            <a class="mood-choice" href="#reason" data-mood-id="angry" style="--tone:#ff625d"><strong>Angry</strong><span>ember pulse</span></a>
+            <a class="mood-choice" href="#reason" data-mood-id="calm" style="--tone:#6fffe9"><strong>Calm</strong><span>galaxy drift</span></a>
+            <a class="mood-choice" href="#reason" data-mood-id="motivated" style="--tone:#68f8c0"><strong>Motivated</strong><span>electric dawn</span></a>
+          </div>
+        </section>
+
+        <section class="flow-layer" id="reason" data-flow="reason">
+          <div class="flow-header">
+            <p class="kicker">Emotional context</p>
+            <h2>What's causing this feeling?</h2>
+          </div>
+          <div class="mood-picker reason-picker" id="reasonPicker">
+            <a class="mood-choice reason-choice" href="#app" data-reason="Relationship" style="--tone:#ff5ea8"><strong>Relationship</strong><span>emotional protection</span></a>
+            <a class="mood-choice reason-choice" href="#app" data-reason="Family" style="--tone:#7da8ff"><strong>Family</strong><span>grounding</span></a>
+            <a class="mood-choice reason-choice" href="#app" data-reason="Studies" style="--tone:#38d8ff"><strong>Studies</strong><span>focus support</span></a>
+            <a class="mood-choice reason-choice" href="#app" data-reason="Loneliness" style="--tone:#8b7bff"><strong>Loneliness</strong><span>comfort</span></a>
+          </div>
+          <a class="main-cta" href="#app" id="openHome">Open home</a>
+        </section>
+
+        <section class="app-layer" id="app" data-flow="app">
+          <header class="home-header">
+            <div>
+              <p class="kicker">Good evening, Maya</p>
+              <h2 id="homeMood">Heartbroken</h2>
+            </div>
+            <button class="profile-dot" type="button" data-tab-target="profile">MA</button>
+          </header>
+
+          <section class="tab-screen active" data-tab="home">
+            <article class="hero-mood-card">
+              <div>
+                <p class="kicker">Today Emora feels</p>
+                <h1 id="heroMessage">You need rest today.</h1>
+                <p id="heroSubtext">No-contact timer, soft rain, and a short breathing reset are ready.</p>
+              </div>
+              <button class="mode-button" type="button" id="primaryModeButton">Start healing</button>
+            </article>
+
+            <div class="quick-actions">
+              <button type="button" data-action="breathing"><span>Breathe</span></button>
+              <button type="button" data-action="relax"><span>Relax</span></button>
+              <button type="button" data-tab-target="journal"><span>Journal</span></button>
+              <button type="button" data-tab-target="ai"><span>Talk to AI</span></button>
+            </div>
+
+            <section class="daily-checkin">
+              <button class="checkin-card glass" type="button" data-action="level">
+                <p>Healing streak</p>
+                <strong id="streakValue">1</strong>
+                <span>days</span>
+              </button>
+              <button class="checkin-card glass" type="button" data-action="mood-memory">
+                <p>Emotional progress</p>
+                <strong>68%</strong>
+                <div class="progress"><i></i></div>
+              </button>
+            </section>
+
+            <button class="mood-graph glass" type="button" data-action="mood-memory">
+              <div class="graph-head">
+                <p>mood evolution</p>
+                <span id="memoryInsight">personalized</span>
+              </div>
+              <div class="bars">
+                <i style="height: 42%"></i>
+                <i style="height: 50%"></i>
+                <i style="height: 34%"></i>
+                <i style="height: 72%"></i>
+                <i style="height: 64%"></i>
+                <i style="height: 86%"></i>
+                <i style="height: 78%"></i>
+              </div>
+            </button>
+          </section>
+
+          <section class="tab-screen" data-tab="heal">
+            <div class="screen-title">
+              <p class="kicker">Healing tools</p>
+              <h2>Choose the kind of care you need.</h2>
+            </div>
+            <div class="cinema-grid">
+              <button class="cinema-card calm" type="button" data-action="breathing"><span>Calm</span><h3>Breathing, grounding, meditation</h3></button>
+              <button class="cinema-card sleep" type="button" data-action="sleep"><span>Sleep</span><h3>Rain, white noise, lo-fi ambience</h3></button>
+              <button class="cinema-card recharge" type="button" data-action="recharge"><span>Recharge</span><h3>Walks, stretching, dopamine detox</h3></button>
+              <button class="cinema-card distract" type="button" data-action="game"><span>Distract</span><h3>Soft games, comfort prompts, reset tasks</h3></button>
+            </div>
+            <button class="breathing-stage glass" type="button" data-action="breathing">
+              <div class="breath-pulse"></div>
+              <div>
+                <p class="kicker">30-second reset</p>
+                <h3 id="contextPrompt">Would listening to calming music help?</h3>
+              </div>
+            </button>
+          </section>
+
+          <section class="tab-screen" data-tab="ai">
+            <div class="screen-title">
+              <p class="kicker">AI companion</p>
+              <h2>Short, soft support when emotions spike.</h2>
+            </div>
+            <div class="chat-card glass">
+              <div class="chat-log" id="chatLog">
+                <p class="bot">I am here. One breath first. What feels loud?</p>
+              </div>
+              <form class="chat-form" id="chatForm">
+                <input id="chatInput" type="text" placeholder="Say it simply..." autocomplete="off" />
+                <button type="submit">Send</button>
+              </form>
+            </div>
+          </section>
+
+          <section class="tab-screen" data-tab="journal">
+            <div class="screen-title">
+              <p class="kicker">Journal</p>
+              <h2>A private room for the feeling.</h2>
+            </div>
+            <article class="journal-paper glass">
+              <p class="kicker">AI prompt</p>
+              <h3 id="journalPrompt">Write the message you wish you could send. Then protect your peace.</h3>
+              <textarea aria-label="Journal entry" placeholder="Let the feeling land here..."></textarea>
+              <div class="journal-actions">
+                <button type="button" data-action="gratitude">Gratitude</button>
+                <button type="button" data-action="voice">Voice note</button>
+              </div>
+            </article>
+          </section>
+
+          <section class="tab-screen" data-tab="profile">
+            <div class="profile-hero glass">
+              <div class="profile-avatar">MA</div>
+              <h2>Maya</h2>
+              <p>Level 7 - Soft Reset</p>
+            </div>
+            <div class="profile-list">
+              <button class="glass" type="button" data-action="level"><span>Healing level</span><strong>7</strong><i style="width: 72%"></i></button>
+              <button class="glass" type="button" data-action="badges"><span>Achievements</span><strong>24</strong><i style="width: 84%"></i></button>
+              <button class="glass" type="button" data-action="mood-memory"><span>Favorite mood</span><strong>Calm</strong><i style="width: 58%"></i></button>
+            </div>
+          </section>
+        </section>
+
+        <button class="ai-orb" type="button" id="aiOrb" aria-label="Open AI companion"></button>
+
+        <aside class="mini-player glass" id="miniPlayer" aria-live="polite">
+          <button type="button" id="playPause">Play</button>
+          <div>
+            <strong id="trackTitle">Rain piano</strong>
+            <span id="trackMood">Heartbroken ambience</span>
+          </div>
+          <input id="volumeControl" type="range" min="0" max="100" value="35" aria-label="Volume" />
+        </aside>
+
+        <nav class="bottom-nav" aria-label="Main navigation">
+          <a class="active" href="#app" data-tab-target="home">Home</a>
+          <a href="#app" data-tab-target="heal">Heal</a>
+          <a href="#app" data-tab-target="ai">AI</a>
+          <a href="#app" data-tab-target="journal">Journal</a>
+          <a href="#app" data-tab-target="profile">Profile</a>
+        </nav>
+
+        <section class="ex-mode" id="exMode" aria-live="polite">
+          <div class="ex-panel">
+            <button class="close-mode" type="button" id="closeExMode">Close</button>
+            <p class="kicker">Viral healing mode</p>
+            <h2>Don't Text Your Ex</h2>
+            <div class="timer" id="noContactTimer">00:59:59</div>
+            <button class="panic-button" type="button" id="panicButton">Emergency calm</button>
+            <textarea aria-label="Unsent message" placeholder="Dump the message here. Do not send it."></textarea>
+            <div class="ex-actions">
+              <button type="button" data-action="breathing">Breathe</button>
+              <button type="button" data-action="game">Distract me</button>
+              <button type="button" data-action="music">Play rain</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="experience-sheet" id="experienceSheet" aria-live="polite">
+          <div class="experience-panel glass">
+            <button class="close-mode" type="button" id="closeExperience">Close</button>
+            <p class="kicker" id="experienceKicker">Calm</p>
+            <h2 id="experienceTitle">Breathing reset</h2>
+            <div class="experience-body" id="experienceBody"></div>
+          </div>
+        </section>
+
+        <div class="toast" id="toast" role="status"></div>
+      </section>
+    </main>
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
